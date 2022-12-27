@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public float jumpForce = 680.0f;     // 跳躍力預設值
     public float walkForce = 30.0f;      // 移動推力預設值
     public float maxWalkSpeed = 2.0f;    // 限制移動的速度值
+    public GameObject STONEtwo;
 
     void Start()
     {
@@ -60,7 +61,11 @@ public class Player : MonoBehaviour
     // 抵達終點
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.name=="flag")
+        if (other.name == "stone")
+        {
+           STONEtwo.GetComponent<GameManager>().DecreaseHp(); // 扣血
+        }
+        else if (other.name=="flag")
             SceneManager.LoadScene("ClearScene");
     }
 

@@ -20,8 +20,11 @@ public class stone : MonoBehaviour
     // 當箭頭碰到其他有碰撞體的東西時
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.name == "player")
-        Destroy(gameObject); // 碰到有碰撞體的東西就刪除自己
+        if(collision.name == "Player")
+        {
+            Destroy(gameObject); // 碰到有碰撞體的東西就刪除自己
+               STONE1.GetComponent<GameManager>().DecreaseHp();
+        }
     }
 
     
